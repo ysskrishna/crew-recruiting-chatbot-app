@@ -8,6 +8,8 @@ class UserInfoSchema(BaseModel):
     email: str
     photo_url: str
 
+    class Config:
+        orm_mode = True
 
 T = TypeVar('T')
 class Response(GenericModel, Generic[T]):
