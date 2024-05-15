@@ -7,9 +7,14 @@ virtualenv venv
 pip install -r requirements.txt
 ```
 
-## How to run
-
+## How to run development
 ```
 .\venv\Scripts\activate
-uvicorn src.main:app --reload
+uvicorn src.main:app
+```
+
+
+## Backend url
+```
+http://localhost:8000/
 ```

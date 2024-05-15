@@ -1,5 +1,7 @@
 import { isEmpty } from '../../utils';
 import { selectAccessToken, selectIsAuthenticated } from '../../redux/features/authSlice';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 const ProtectedRoute = ({ children }) => {
     let accessToken = useSelector(selectAccessToken);

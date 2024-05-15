@@ -1,5 +1,5 @@
 const config = {
-    baseUrl: "base-url",
+    baseUrl: "http://localhost:8000",
 };
 
 

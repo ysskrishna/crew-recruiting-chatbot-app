@@ -12,7 +12,7 @@ class UserInfoSchema(BaseModel):
         orm_mode = True
 
 class CreateChatSchema(BaseModel):
-    chat_id: Optional[str]
+    chat_id: Optional[str] = None
     message: str
 
 

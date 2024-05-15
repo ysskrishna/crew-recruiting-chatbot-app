@@ -1,3 +1,4 @@
+import uuid
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone, timedelta
 from src.models.models import Chat
@@ -18,6 +19,7 @@ def set_chat_public(db: Session, _chat: Chat):
 
 def fork_chat(db: Session, _chat: Chat, user_id: str):
     forked_chat = Chat(
+        chat_id=str(uuid.uuid4()),
         user_id=user_id,
         content=_chat.content,
         title=_chat.title
@@ -41,8 +43,9 @@ def get_ai_message(message):
         "created_at": (datetime.now(timezone.utc)+ timedelta(seconds=5)).timestamp()
     }
 
-def create_chat(db: Session, user_message, ai_response, user_id):
+def create_chat(db: Session, user_message:str, ai_response:str, user_id:str) -> Chat:
     _chat = Chat(
+        chat_id=str(uuid.uuid4()),
         user_id=user_id,
         content=[
             get_user_message(user_message), 

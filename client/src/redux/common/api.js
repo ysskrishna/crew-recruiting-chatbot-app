@@ -1,7 +1,7 @@
 import store from "../store";
 import { selectAccessToken } from "../features/authSlice";
 
-const handleFetch = async (url, method, body, isPublic=false) => {
+export const handleFetch = async (url, method, body, isPublic=false) => {
     const headers = {
       'Content-Type': 'application/json',
     };

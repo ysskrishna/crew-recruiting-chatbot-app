@@ -16,7 +16,7 @@ router = APIRouter()
 @router.get("/all")
 def get_all_chats(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     chats = chat_crud.get_all_chats_by_user_id(db, user.user_id)
-
+    print(chats)
     return Response(message="success", result=chats)
 
 def generate_random_string(length):
@@ -48,7 +48,19 @@ def get_chat(chat_id:str, user: User = Depends(get_current_user), db: Session = 
     if not chat:
         raise HTTPException(status_code=404, detail="Chat not found")
     
-    if not chat.is_public or chat.user_id != user.user_id:
+    if not chat.is_public and (chat.user_id != user.user_id):
+        raise HTTPException(status_code=400, detail="Chat permission denied")
+    
+    return Response(message="success", result=schemas.ChatSchema.from_orm(chat))
+
+@router.get("/{chat_id}/public")
+def get_chat_public(chat_id:str, db: Session = Depends(get_db)):
+    chat = chat_crud.get_chat_by_chat_id(db, chat_id)
+
+    if not chat:
+        raise HTTPException(status_code=404, detail="Chat not found")
+    
+    if not chat.is_public:
         raise HTTPException(status_code=400, detail="Chat permission denied")
     
     return Response(message="success", result=schemas.ChatSchema.from_orm(chat))
