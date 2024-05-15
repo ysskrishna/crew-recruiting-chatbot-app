@@ -1,4 +1,4 @@
-from sqlalchemy import  Column, Integer, String, ForeignKey, DateTime, Date, JSON
+from sqlalchemy import  Column, String, ForeignKey, DateTime, JSON, Boolean
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from sqlalchemy.orm import declarative_mixin
@@ -28,4 +28,6 @@ class Chat(Timestamp, Base):
 
     chat_id = Column(String, primary_key=True, index=True, default=str(uuid.uuid4()))
     user_id = Column(String, ForeignKey("users.user_id"), nullable=False)
+    title =  Column(String, nullable=False)
+    is_public = Column(Boolean, default=False, nullable=False)
     content = Column(JSON, nullable=False)
