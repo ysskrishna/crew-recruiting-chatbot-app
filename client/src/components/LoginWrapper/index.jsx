@@ -1,12 +1,16 @@
 import {auth, githubProvider, googleProvider} from '../../config/firebase';
 import { signInWithPopup } from "firebase/auth";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { toastError, toastInfo } from "../../utils/toast";
 import { login } from "../../redux/api/authApi";
+import {  selectIsLoading } from '../../redux/features/authSlice';
+import Spinner from '../Spinner';
+
 
 const LoginWrapper = ({redirectPath}) => {
     const dispatch = useDispatch();
-
+    const isLoading = useSelector(selectIsLoading);
+    
     const googleSignin = () => {
         signInWithPopup(auth, googleProvider)
         .then((response) => {
@@ -44,6 +48,10 @@ const LoginWrapper = ({redirectPath}) => {
                 toastError('Something went wrong. Please try again');
             }
         })
+    };
+
+    if (isLoading) {
+        return <div className='flex flex-row items-center'>Loading ... <Spinner /></div>;
     }
 
     return (
