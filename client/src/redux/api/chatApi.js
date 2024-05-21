@@ -18,7 +18,8 @@ export const getAllChats = () => async (dispatch) => {
       if (response?.result?.length > 0){
         await dispatch(setChat({
           chat: response?.result?.[0]
-        }))
+        }));
+        await dispatch(getAllChats());
       }
     } catch (error) {
       console.error('UnknownError:', error);

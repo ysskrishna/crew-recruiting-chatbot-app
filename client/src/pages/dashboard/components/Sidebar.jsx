@@ -4,7 +4,7 @@ import closeicon from "../../../assets/close-icon.png";
 import menuicon from "../../../assets/menuicon.png";
 
 import ChatTitle from "./ChatTitle";
-import { logoutUser } from "../../../redux/features/authSlice";
+import { logoutUser, selectUser } from "../../../redux/features/authSlice";
 import { selectChats } from "../../../redux/features/chatSlice";
 import { getChat } from "../../../redux/api/chatApi";
 
@@ -12,6 +12,7 @@ const Sidebar = ({ onNewChat }) => {
   const dispatch = useDispatch();
 
   const chats = useSelector(selectChats);
+  const user = useSelector(selectUser);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const Sidebar = ({ onNewChat }) => {
             </div>
           </div>
           <div className="flex flex-col  justify-end">
+            <div className="my-2 text-lg mx-auto">Welcome, <span className="italic">{user?.name}</span></div>
             <button
               className="bg-[#ececec] hover:bg-gray-200  font-bold py-2 px-4 rounded"
               onClick={onNewChat}
