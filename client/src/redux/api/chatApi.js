@@ -19,7 +19,6 @@ export const getAllChats = () => async (dispatch) => {
         await dispatch(setChat({
           chat: response?.result?.[0]
         }));
-        await dispatch(getAllChats());
       }
     } catch (error) {
       console.error('UnknownError:', error);
