@@ -1,21 +1,43 @@
-# Chatbot Full Stack Challenge
-This document specifies a simple ai-human chat server which you're going to implement. This is intended to showcase your technical competence with HTML, CSS, and React.js, databases, oauth and row level security.
+# Indie GPT
+A full stack application which allows users to demonstrate an interactive chatbot application with chat sharing, forking features.
 
-We want a web application that mimics chatgpt in nearly every way but one: If one user has a link to another user's chat (which you can access via the share button), that user should be able to "fork" the conversation and continue it.
 
-## Simplifications
-You do not need to use the OpenAI/other llm api. You should create a backend call that returns a random string of text 200 characters long.
-You do not need to handle the displaying of markdown by the chatbot.
-You can assume that your user is running an up-to-date version of chrome.
+## Techstack used: 
+- React
+- Redux
+- Firebase
+- Tailwindcss
+- FastAPI
+- SQLAlchemy
+- SQLite
+- Vercel
 
-## Requirements
-The user should be able to log-in and register with the same button with google and with github.
-Unless a conversation has been shared, other users should not be able to see it.
-You should copy chatgpt's style as closely as possible.
-You should figure out how to host your project yourself for free. No special domain names needed. You do not need to document your work significantly.
-Please demonstrate usage of RLS.
+## Application features
+- Google Login
+- Github Login
+- Multiple conversations
+- Share conversation
+- Fork public conversation and continue
 
-## Submission
-Your code should be executable by running "./run.sh." This file should be no longer than 15 lines.
-Include a short readme that explains any quirks, and any extra requirements for running your application, and gives a brief walkthrough of the code.
-Feel free to ask any questions!
+
+## Demo
+
+### Login Page
+<img src="./media/login.JPG" alt="Login Page"/>
+
+### Dashboard Page
+<img src="./media/dashboard.JPG" alt="Dashboard Page"/>
+
+### Shared Chat Page
+<img src="./media/chat-sharing.JPG" alt="Shared Chat Page"/>
+
+<video width="320" height="240" controls>
+  <source src="./media/indiegpt.mp4" type="video/mp4">
+</video>
+
+
+### Backend Documentation
+For backend, please go through the `backend/README.md` file
+
+### Frontend Documentation
+For frontend, please go through the `client/README.md` file
