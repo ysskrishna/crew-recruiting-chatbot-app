@@ -31,6 +31,12 @@ A full stack application which allows users to demonstrate an interactive chatbo
 ### Shared Chat Page
 <img src="./media/chat-sharing.JPG" alt="Shared Chat Page"/>
 
+
+
+https://github.com/ysskrishna/crew-recruiting-chatbot-app/assets/26503640/0e27b438-614c-4b12-b81c-69c36fdc94bc
+
+
+
 <video width="320" height="240" controls>
   <source src="./media/indiegpt.mp4" type="video/mp4">
 </video>
